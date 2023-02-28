@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 27d7b2102810e4b4fb940470348e58bc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - candies: {fileID: 2084228065728260159, guid: 3174557549f183540adcc56a73e1edc8, type: 3}
+  - button1: {instanceID: 0}
+  - button2: {instanceID: 0}
+  - button3: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
