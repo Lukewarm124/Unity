@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,8 @@ using UnityEngine.UI;
 
 public class BombOperator : MonoBehaviour
 {
-    private bool gameState = true;
+    public GameObject gameCamera;
+    private bool gameState = false;
     public GameObject P1;
     public GameObject P2;
     public GameObject Bomb1;
@@ -16,11 +18,12 @@ public class BombOperator : MonoBehaviour
     private GameObject button3;
     public GameObject Bomb4;
     private GameObject button4;
+    private bool explode_rest = true;
     public int real_bomb;
 
     private void Start()
     {
-        real_bomb = Random.Range(1, 4);
+        real_bomb = UnityEngine.Random.Range(1, 4);
         button1 = ((Bomb1.transform.Find("Button").gameObject).transform.Find("Hitbox").gameObject);
         button2 = ((Bomb2.transform.Find("Button").gameObject).transform.Find("Hitbox").gameObject);
         button3 = ((Bomb3.transform.Find("Button").gameObject).transform.Find("Hitbox").gameObject);
@@ -29,30 +32,48 @@ public class BombOperator : MonoBehaviour
         //print(button2);
         //print(button3);
         //print(button4);
-        //print(real_bomb);
+        print(real_bomb);
     }
     void Update()
     {
-        if (button1.GetComponent<ButtonPressScript>().pressed && real_bomb==1)
+        if (button1.GetComponent<ButtonPressScript>().pressed && explode_rest)
         {
-            print("1 good");
+            explode_rest= false;
+            explodeBomb(1, Bomb1);
         }
-        if (button2.GetComponent<ButtonPressScript>().pressed && real_bomb == 2)
-        {   
-            print("2 good");
-        }
-        if (button3.GetComponent<ButtonPressScript>().pressed && real_bomb == 3)
+        if (button2.GetComponent<ButtonPressScript>().pressed && explode_rest)
         {
-            print("3 good");
+            explode_rest = false;
+            explodeBomb(2, Bomb2);
         }
-        if (button4.GetComponent<ButtonPressScript>().pressed && real_bomb == 4)
+        if (button3.GetComponent<ButtonPressScript>().pressed && explode_rest)
         {
-            print("4 good");
+            explode_rest = false;
+            explodeBomb(3, Bomb3);
+        }
+        if (button4.GetComponent<ButtonPressScript>().pressed && explode_rest)
+        {
+            explode_rest = false;
+            explodeBomb(4 , Bomb4);
         }
     }
-    
+    void explodeBomb(int bomb,GameObject bombBody)
+    {
+        if(bomb == real_bomb)
+        {
+            print("Explode!!");
+            endGame(bombBody);
+        }
+        else
+        {
+            print("no explode");
+            swapPosition();
+            bombBody.transform.position = new Vector3(100, 100, 100);
+        }
+    }
     void swapPosition()
     {
+        print("Swaping position");
         if(gameState)
         {
             P1.transform.position = new Vector3(0, 7, 18);
@@ -65,6 +86,28 @@ public class BombOperator : MonoBehaviour
             P2.transform.position = new Vector3(0, 7, 18);
             gameState = true;
         }
+        Invoke("setExplodeRest",2);
+    }
+    void setExplodeRest()
+    {
+        explode_rest = true;
+    }
+    void activateEndScreen(bool gameState)
+    {
+        if(gameState)
+        {
+            print(gameCamera.transform.Find("Player1WinScreen").gameObject);
+        }
+        else
+        {
+            print(gameCamera.transform.Find("Player2WinScreen").gameObject);
+        }
+    }
+    void endGame(GameObject bombBody)
+    {
+        print("end of game");
+        bombBody.gameObject.transform.Find("Explosion").transform.localScale = new Vector3(20,20,20);
+        activateEndScreen(gameState);
     }
 
 }

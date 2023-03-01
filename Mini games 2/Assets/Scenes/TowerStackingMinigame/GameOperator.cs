@@ -10,7 +10,7 @@ public class GameOperator : MonoBehaviour
     public GameObject block;
     public GameObject spawner1;
     public GameObject spawner2;
-    public GameObject camera;
+    public GameObject gameCamera;
     public bool P1Press = false;
     public int blocksP1;
     public bool P2Press = false;
@@ -51,11 +51,11 @@ public class GameOperator : MonoBehaviour
         gameEnd = true;
         if (blocksP1 >= blocksP2)
         {
-            camera.transform.position += new Vector3(0, blocksP1*2, 0);
+            gameCamera.transform.position += new Vector3(0, blocksP1*2, 0);
         }
         else
         {
-            camera.transform.position += new Vector3(0, blocksP2*2, 0);
+            gameCamera.transform.position += new Vector3(0, blocksP2*2, 0);
         }
        
     }
