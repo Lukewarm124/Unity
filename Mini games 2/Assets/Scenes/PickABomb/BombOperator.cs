@@ -92,22 +92,22 @@ public class BombOperator : MonoBehaviour
     {
         explode_rest = true;
     }
-    void activateEndScreen(bool gameState)
+    void activateEndScreen()
     {
         if(gameState)
         {
-            print(gameCamera.transform.Find("Player1WinScreen").gameObject);
+            gameCamera.transform.Find("Player1WinScreen").gameObject.GetComponent<Renderer>().enabled = true;
         }
         else
         {
-            print(gameCamera.transform.Find("Player2WinScreen").gameObject);
+            gameCamera.transform.Find("Player2WinScreen").gameObject.GetComponent<Renderer>().enabled = true;
         }
     }
     void endGame(GameObject bombBody)
     {
         print("end of game");
         bombBody.gameObject.transform.Find("Explosion").transform.localScale = new Vector3(20,20,20);
-        activateEndScreen(gameState);
+        Invoke("activateEndScreen",.5f);
     }
 
 }
