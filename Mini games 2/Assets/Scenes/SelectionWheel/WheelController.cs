@@ -18,6 +18,7 @@ public class WheelController : MonoBehaviour
     public GameObject selectorBit;
     private List<int> gameList = new List<int>();
     private Boolean wheelSpinRest=true;
+    private Boolean startGame=true;
 
     private void Start()
     {
@@ -44,5 +45,11 @@ public class WheelController : MonoBehaviour
         {
             spinWheel();
         }
+        else if(startGame && wheelRotation == 0)
+        {
+            startGame = false;
+            selectorBit.transform.position += new Vector3(0, -5, 0);
+        }
+
     }
 }
