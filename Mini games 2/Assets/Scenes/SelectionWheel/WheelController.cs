@@ -23,13 +23,13 @@ public class WheelController : MonoBehaviour
     private void Start()
     {
         wheelRotation = UnityEngine.Random.Range(0, 9);
-        wheelRotation = (wheelRotation * 45) + (360 * 5);
+        wheelRotation = (wheelRotation * 45) + (360 * 4);
 
     }
 
     private void spinWheel()
     {
-        print(wheelRotation);
+        //print(wheelRotation);
         wheelSpinRest = false;
         wheel.transform.Rotate(0, 0, 1);
         wheelRotation -= 1;
@@ -41,6 +41,8 @@ public class WheelController : MonoBehaviour
     }
     void Update()
     {
+        string name = "fhsjhfjsdfjsdfjs1";
+        print(name.Substring(0, 12));
         if(wheelSpinRest &&  wheelRotation > 0)
         {
             spinWheel();
@@ -49,7 +51,9 @@ public class WheelController : MonoBehaviour
         {
             startGame = false;
             selectorBit.transform.position += new Vector3(0, -5, 0);
+            print(selectorBit.GetComponent<ChooseyBitScript>().getNextLevel());
+            //Invoke("goToNextScene", 3);
         }
-
     }
+
 }
