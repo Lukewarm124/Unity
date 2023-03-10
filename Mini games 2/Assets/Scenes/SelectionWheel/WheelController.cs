@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class WheelController : MonoBehaviour
 {
+    private int spins = 0;
     private int wheelRotation;
     public GameObject wheel;
     public GameObject wheelSection1;
@@ -23,7 +24,7 @@ public class WheelController : MonoBehaviour
     private void Start()
     {
         wheelRotation = UnityEngine.Random.Range(0, 9);
-        wheelRotation = (wheelRotation * 45) + (360 * 4);
+        wheelRotation = (wheelRotation * 45) + (360 * spins);
 
     }
 
@@ -42,7 +43,7 @@ public class WheelController : MonoBehaviour
     void Update()
     {
         string name = "fhsjhfjsdfjsdfjs1";
-        print(name.Substring(0, 12));
+        //print(name.Substring(0, 12));
         if(wheelSpinRest &&  wheelRotation > 0)
         {
             spinWheel();
