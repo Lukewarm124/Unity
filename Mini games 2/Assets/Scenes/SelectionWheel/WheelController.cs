@@ -42,7 +42,6 @@ public class WheelController : MonoBehaviour
     }
     void Update()
     {
-        string name = "fhsjhfjsdfjsdfjs1";
         //print(name.Substring(0, 12));
         if(wheelSpinRest &&  wheelRotation > 0)
         {
