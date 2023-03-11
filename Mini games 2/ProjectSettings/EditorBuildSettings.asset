@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SelectionWheel/MainScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/ColorSwitch/ColorSwitch.unity
-    guid: 86b7ad4e72afa5d4dbe1d2f9b1d78bd9
-  - enabled: 1
     path: Assets/Scenes/PickABomb/PickABomb.unity
     guid: 2e88d5775f5a7de4cb6da73f43994610
   - enabled: 1
     path: Assets/Scenes/TowerStackingMinigame/TowerStackingMinigame.unity
     guid: 639b5e3297fbdd846a13c13cd33da4af
+  - enabled: 1
+    path: Assets/Scenes/ColorSwitch/ColorSwitch.unity
+    guid: 86b7ad4e72afa5d4dbe1d2f9b1d78bd9
   m_configObjects: {}

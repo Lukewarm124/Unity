@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WheelController : MonoBehaviour
 {
     private int spins = 0;
+    private int nextSceneNum;
     private int wheelRotation;
     public GameObject wheel;
     public GameObject wheelSection1;
@@ -38,7 +40,7 @@ public class WheelController : MonoBehaviour
     }
     private void wheelSpinRestTrue()
     {
-        wheelSpinRest=true;
+        wheelSpinRest = true;
     }
     void Update()
     {
@@ -51,9 +53,16 @@ public class WheelController : MonoBehaviour
         {
             startGame = false;
             selectorBit.transform.position += new Vector3(0, -5, 0);
-            print(selectorBit.GetComponent<ChooseyBitScript>().getNextLevel());
-            //Invoke("goToNextScene", 3);
+            int nextScene = selectorBit.GetComponent<ChooseyBitScript>().getNextLevel();
+            print(nextScene);
+            nextSceneNum = nextScene;
+            Invoke("goToNextScene", 3);
         }
+    }
+
+    void goToNextScene()
+    {
+        SceneManager.LoadScene(nextSceneNum);
     }
 
 }
