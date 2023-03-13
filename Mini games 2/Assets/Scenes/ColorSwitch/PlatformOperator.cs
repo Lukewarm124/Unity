@@ -6,53 +6,88 @@ using UnityEngine;
 public class PlatformOperator : MonoBehaviour
 {
     private bool gameOn = true;
+    public bool roundOn = false;
     public float timerVal;
-    public float runningTimer;
+    public GameObject lightsBL;
+    public GameObject lightsBR;
+    public GameObject lightsTL;
+    public GameObject lightsTR;
     public GameObject BL;
     public GameObject BR;
     public GameObject TL;
     public GameObject TR;
+    public GameObject chosenBlock;
+    public GameObject chosenLight;
 
+    private void Start()
+    {
+        startNewRound();
+    }
     void FixedUpdate()
     {
-        if (runningTimer < 0)
+        if (!(roundOn) && gameOn)
         {
-            timerVal -= 2;
-            runningTimer = timerVal;
-            activateBlock(choosePlatform());
-        }
-        else
-        {
-            runningTimer -= Time.deltaTime;
+            startNewRound();
         }
     }
 
-    private GameObject choosePlatform()
+    private void startNewRound()
+    {
+        roundOn= true;
+        startTimer();
+        choosePlatform();
+        activateLight();
+        Invoke("activateBlock",timerVal);
+    }
+
+    private void startTimer()
+    {
+        timerVal *= .3f;
+    }
+
+
+    private void choosePlatform()
     {
         int block = (UnityEngine.Random.Range(1,5));
         if (block == 1)
         {
-            return BL;
+            chosenBlock = BL;
+            chosenLight = lightsBL;
         }
         else if(block == 2) 
-        { 
-            return BR;
+        {
+            chosenBlock = BR;
+            chosenLight = lightsBR;
         }
         else if (block == 3)
         {
-            return TL;
+            chosenBlock = TL;
+            chosenLight = lightsTL;
         }
         else if (block == 4)
         {
-            return TR;
+            chosenBlock = TR;
+            chosenLight = lightsTR;
         }
-        return null;    
+        chosenBlock = null;    
+    }
+    private void activateLight()
+    {
+        lightsBL.GetComponent<Renderer>().enabled = false;
+        lightsBR.GetComponent<Renderer>().enabled = false;
+        lightsTL.GetComponent<Renderer>().enabled = false;
+        lightsTR.GetComponent<Renderer>().enabled = false;
     }
 
-    private void activateBlock(GameObject block)
+    private void activateBlock()
     {
-        lowerBlock(block);
-        raiseBlock(block);
+        lowerBlock(BL);
+        lowerBlock(BR);
+        lowerBlock(TL);
+        lowerBlock(TR);
+
+        raiseBlock(chosenBlock);
+        Invoke("raiseAllBlocks", 2);
     }
     private void lowerBlock(GameObject block)
     {
@@ -61,6 +96,14 @@ public class PlatformOperator : MonoBehaviour
     private void raiseBlock(GameObject block)
     {
         block.transform.position = new Vector3(block.transform.position.x, 0, block.transform.position.z);
+    }
+    private void raiseAllBlocks()
+    {
+        BR.transform.position = new Vector3(BR.transform.position.x, 0, BR.transform.position.z);
+        BL.transform.position = new Vector3(BL.transform.position.x, 0, BL.transform.position.z);
+        TL.transform.position = new Vector3(TL.transform.position.x, 0, TL.transform.position.z);
+        TR.transform.position = new Vector3(TR.transform.position.x, 0, TR.transform.position.z);
+
     }
 
 }
