@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class WheelController : MonoBehaviour
 {
-    private int spins = 5;
+    private int spins = 3;
     private int nextSceneNum;
     private int wheelRotation;
     public GameObject wheel;
@@ -24,17 +24,17 @@ public class WheelController : MonoBehaviour
 
     private void spinWheel()
     {
-        //print(wheelRotation);
+        print(wheelRotation);
         wheelSpinRest = false;
-        wheel.transform.Rotate(0, 0, 1);
-        wheelRotation -= 1;
+        wheel.transform.Rotate(0, 0, 5);
+        wheelRotation -= 5;
         Invoke("wheelSpinRestTrue", .01f);
     }
     private void wheelSpinRestTrue()
     {
         wheelSpinRest = true;
     }
-    void Update()
+    void FixedUpdate()
     {
         //print(name.Substring(0, 12));
         if(wheelSpinRest &&  wheelRotation > 0)
