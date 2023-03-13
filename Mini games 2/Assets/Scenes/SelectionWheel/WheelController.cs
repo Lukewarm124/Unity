@@ -6,18 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class WheelController : MonoBehaviour
 {
-    private int spins = 0;
+    private int spins = 5;
     private int nextSceneNum;
     private int wheelRotation;
     public GameObject wheel;
-    public GameObject wheelSection1;
-    public GameObject wheelSection2;
-    public GameObject wheelSection3;
-    public GameObject wheelSection4;
-    public GameObject wheelSection5;
-    public GameObject wheelSection6;
-    public GameObject wheelSection7;
-    public GameObject wheelSection8;
     public GameObject selectorBit;
     private List<int> gameList = new List<int>();
     private Boolean wheelSpinRest=true;
