@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -563,6 +563,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489943664}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &519779941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8188795101265494702, guid: 9db1c67945a840543bdd20bf136e70ed, type: 3}
+  m_PrefabInstance: {fileID: 408737870}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &544419695
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +662,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &581545952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3977559577995153079, guid: 4e82355e30507274e9d31992f9e579b1, type: 3}
+  m_PrefabInstance: {fileID: 1457851239}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &613631459
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +1090,11 @@ Transform:
   m_Father: {fileID: 613631460}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1019468580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6962809350321641144, guid: f34b0634e07e5af4bab3094551ec0813, type: 3}
+  m_PrefabInstance: {fileID: 200335217}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1257646014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,8 +1318,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce5d1348098dc5479b3c00fb4123fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roundOn: 0
   timerVal: 8
-  runningTimer: 0
+  lastBlock: 0
+  P1: {fileID: 1019468580}
+  P2: {fileID: 519779941}
+  gameCamera: {fileID: 581545952}
   lightsBL: {fileID: 1917041206}
   lightsBR: {fileID: 3879069}
   lightsTL: {fileID: 924719901}
@@ -1314,6 +1333,7 @@ MonoBehaviour:
   TL: {fileID: 831166284}
   TR: {fileID: 1332393883}
   chosenBlock: {fileID: 0}
+  chosenLight: {fileID: 0}
 --- !u!4 &1442056899
 Transform:
   m_ObjectHideFlags: 0
