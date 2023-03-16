@@ -12,7 +12,7 @@ public class ChooseyBitScript : MonoBehaviour
         {
             if (things[i].gameObject.layer == 8)
             {
-                print(things[i]);
+                //print(things[i]);
                 return int.Parse(things[i].gameObject.name.Substring(12,1));
             }
         }

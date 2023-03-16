@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SelectionWheel/MainScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/TransitionScreen/TransitionScreen.unity
+    guid: 6a9f95477c708254b89bef5461775871
+  - enabled: 1
     path: Assets/Scenes/PickABomb/PickABomb.unity
     guid: 2e88d5775f5a7de4cb6da73f43994610
   - enabled: 1

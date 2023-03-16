@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BombOperator : MonoBehaviour
@@ -108,6 +109,11 @@ public class BombOperator : MonoBehaviour
         print("end of game");
         bombBody.gameObject.transform.Find("Explosion").transform.localScale = new Vector3(20,20,20);
         Invoke("activateEndScreen",.5f);
+        Invoke("goToWheel", 2.5f);
+    }
+    private void goToWheel()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }

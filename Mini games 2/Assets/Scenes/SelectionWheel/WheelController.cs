@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class WheelController : MonoBehaviour
 {
-    private int spins = 3;
-    private int nextSceneNum;
+    private int spins = 0;
     private int wheelRotation;
     public GameObject wheel;
     public GameObject selectorBit;
@@ -25,7 +24,7 @@ public class WheelController : MonoBehaviour
 
     private void spinWheel()
     {
-        print(wheelRotation);
+        //print(wheelRotation);
         wheelSpinRest = false;
         wheel.transform.Rotate(0, 0, 5);
         wheelRotation -= 5;
@@ -47,15 +46,15 @@ public class WheelController : MonoBehaviour
             startGame = false;
             selectorBit.transform.position += new Vector3(0, -5, 0);
             int nextScene = selectorBit.GetComponent<ChooseyBitScript>().getNextLevel();
-            print(nextScene);
-            nextSceneNum = nextScene;
+            //print(nextScene);
+            chosenMinigame = nextScene+1;
             Invoke("goToNextScene", 3);
         }
     }
 
     void goToNextScene()
     {
-        SceneManager.LoadScene(nextSceneNum);
+        SceneManager.LoadScene(1);
     }
 
 }
