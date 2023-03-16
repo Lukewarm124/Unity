@@ -14,6 +14,7 @@ public class WheelController : MonoBehaviour
     private List<int> gameList = new List<int>();
     private Boolean wheelSpinRest=true;
     private Boolean startGame=true;
+    public static int chosenMinigame;
 
     private void Start()
     {
