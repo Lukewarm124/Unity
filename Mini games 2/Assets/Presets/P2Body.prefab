@@ -213,6 +213,8 @@ MonoBehaviour:
   x_movement: 0
   z_movement: 0
   speed: 5
+  x_speed: 1
+  z_speed: 1
   playerBody: {fileID: 8188795101265494689}
   playerMask:
     serializedVersion: 2

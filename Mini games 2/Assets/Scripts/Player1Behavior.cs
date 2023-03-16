@@ -7,6 +7,8 @@ public class Player1Behavior : MonoBehaviour
     public float x_movement;
     public float z_movement;
     public float speed;
+    public float x_speed;
+    public float z_speed;
     public Rigidbody playerBody;
     public LayerMask playerMask;
     void Start()
@@ -19,6 +21,6 @@ public class Player1Behavior : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        playerBody.velocity = new Vector3(x_movement * speed, playerBody.velocity.y, z_movement * speed);
+        playerBody.velocity = new Vector3(x_movement * speed *x_speed, playerBody.velocity.y, z_movement * speed * z_speed);
     }
 }
