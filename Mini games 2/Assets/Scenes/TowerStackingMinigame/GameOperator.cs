@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Threading;
 using System.Runtime.CompilerServices;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class GameOperator : MonoBehaviour
 {
@@ -51,14 +52,19 @@ public class GameOperator : MonoBehaviour
         gameEnd = true;
         if (blocksP1 >= blocksP2)
         {
+            gameCamera.transform.Find("Player1WinScreen").gameObject.GetComponent<Renderer>().enabled = true;
             gameCamera.transform.position += new Vector3(0, blocksP1*2, 0);
+            Invoke("goToWheel", 2);
         }
         else
         {
+            gameCamera.transform.Find("Player2WinScreen").gameObject.GetComponent<Renderer>().enabled = true;
             gameCamera.transform.position += new Vector3(0, blocksP2*2, 0);
+            Invoke("goToWheel", 2);
         }
        
     }
+    
     private void makeBlockP1()
     {
         Instantiate(block, spawner1.transform);
@@ -71,5 +77,9 @@ public class GameOperator : MonoBehaviour
         blocksP2++;
         P2Press = false;
     }
-    
+    private void goToWheel()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }
