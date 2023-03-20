@@ -11,6 +11,4 @@ public class CandyOperator : MonoBehaviour
     {
         
     }
-
-    private void 
 }
