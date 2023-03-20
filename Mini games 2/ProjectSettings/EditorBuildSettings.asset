@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BumperBalls/BumperBalls.unity
     guid: 8f4980eed02e54a40a4c059c1c8b5a30
+  - enabled: 1
+    path: Assets/Scenes/TipperBalls/TipperBalls.unity
+    guid: e74a6e296e5ec3a4aae87cdb20f43b09
   m_configObjects: {}

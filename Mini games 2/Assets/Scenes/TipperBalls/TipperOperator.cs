@@ -18,12 +18,12 @@ public class TipperOperator : MonoBehaviour
     {
         runningSpinTimer -= Time.deltaTime;
         runningROTTimer -= Time.deltaTime;
-        if (P1.transform.position.y < -5)
+        if (P1.transform.position.y < -15)
         {
             gameCamera.transform.Find("Player2WinScreen").gameObject.GetComponent<Renderer>().enabled = true;
             Invoke("goToWheel", 2);
         }
-        if (P2.transform.position.y < -5)
+        if (P2.transform.position.y < -15)
         {
             gameCamera.transform.Find("Player1WinScreen").gameObject.GetComponent<Renderer>().enabled = true;
             Invoke("goToWheel", 2);

@@ -52,15 +52,13 @@ public class GameOperator : MonoBehaviour
         gameEnd = true;
         if (blocksP1 >= blocksP2)
         {
-            gameCamera.transform.Find("Player1WinScreen").gameObject.GetComponent<Renderer>().enabled = true;
             gameCamera.transform.position += new Vector3(0, blocksP1*2, 0);
-            Invoke("goToWheel", 2);
+            Invoke("setCamera", 2);
         }
         else
         {
-            gameCamera.transform.Find("Player2WinScreen").gameObject.GetComponent<Renderer>().enabled = true;
             gameCamera.transform.position += new Vector3(0, blocksP2*2, 0);
-            Invoke("goToWheel", 2);
+            Invoke("setCamera", 2);
         }
        
     }
@@ -76,6 +74,19 @@ public class GameOperator : MonoBehaviour
         Instantiate(block, spawner2.transform);
         blocksP2++;
         P2Press = false;
+    }
+    private void setCamera()
+    {
+        if (blocksP1 >= blocksP2)
+        {
+            gameCamera.transform.Find("Player1WinScreen").gameObject.GetComponent<Renderer>().enabled = true;
+            Invoke("goToWheel", 2);
+        }
+        else
+        {
+            gameCamera.transform.Find("Player2WinScreen").gameObject.GetComponent<Renderer>().enabled = true;
+            Invoke("goToWheel", 2);
+        }
     }
     private void goToWheel()
     {
