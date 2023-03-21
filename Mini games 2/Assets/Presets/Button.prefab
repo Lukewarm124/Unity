@@ -111,12 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressed: 0
-  p1:
-    serializedVersion: 2
-    m_Bits: 64
-  p2:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1 &8741514607523151540
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +173,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7de93740657204647b7086208a700441, type: 2}
+  - {fileID: 2100000, guid: 8d39ea1e816ad78419d6f2d2db407c6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17338675, g: 0.21673858, b: 0.2988075, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -241,6 +241,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6857695687805846675, guid: 5416b16fa9a1ab24c87e5f9c6cb89192, type: 3}
   m_PrefabInstance: {fileID: 40365950}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &45471798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3977559577995153079, guid: 4e82355e30507274e9d31992f9e579b1, type: 3}
+  m_PrefabInstance: {fileID: 192615797}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &51603503 stripped
 Transform:
@@ -1265,12 +1270,12 @@ MonoBehaviour:
   P1: {fileID: 1252944782}
   P2: {fileID: 1858527411}
   candySpawner: {fileID: 955797232}
-  gameCamera: {fileID: 0}
+  gameCamera: {fileID: 45471798}
   P1Candy: 0
   P2Candy: 0
   amount: 2000
-  timer: 0
-  growAmount: 0.01
+  timer: 25
+  growAmount: 0.007
   candyLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -3828,14 +3833,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831483605}
-  m_LocalRotation: {x: 0.62088513, y: -0.19826688, z: 0.16636564, w: 0.7399422}
+  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
   m_LocalPosition: {x: 0, y: 100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 80, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &833898370
 GameObject:
   m_ObjectHideFlags: 0
