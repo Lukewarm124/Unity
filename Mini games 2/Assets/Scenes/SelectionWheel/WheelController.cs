@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class WheelController : MonoBehaviour
 {
-    private int spins = 0;
+    private int spins = 3;
     private int wheelRotation;
     public GameObject wheel;
     public GameObject selectorBit;

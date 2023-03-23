@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CandyCollect/Grass.unity
     guid: 4f2a1fe7143ecc0449ce6e111bf5efbe
+  - enabled: 1
+    path: Assets/Scenes/PipeClimber/PipeClimber.unity
+    guid: 54a79c490291e43498cf0c478572478a
   m_configObjects: {}

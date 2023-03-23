@@ -23,10 +23,14 @@ public class PipeOperator : MonoBehaviour
     private bool pipeActive = true;
 
     public float rockSpawnTimer;
+    public float speedUp;
     private float runningRockSpawnTimer;
-    private bool rockDrop = true;
     private bool P1Rock;
     private bool P2Rock;
+
+    public int R2Count;
+    public int R3Count;
+
 
 
     void Start()
@@ -44,7 +48,7 @@ public class PipeOperator : MonoBehaviour
         if (runningRockSpawnTimer < 0)
         {
             runningRockSpawnTimer = rockSpawnTimer;
-            rockSpawnTimer *= .4f;
+            rockSpawnTimer *= speedUp;
             prepRock();
         }
         
@@ -57,34 +61,37 @@ public class PipeOperator : MonoBehaviour
     }
     private void prepRock()
     {
-        rockDrop= false;
         int P1Rock = Random.Range(0, 3);
         int P2Rock = Random.Range(0, 3);
         
 
-        if (P1Rock < 2)
+        if (P1Rock < 2 && R2Count < 2)
         {
             arrowOn(arrow1);
             this.P1Rock = true;
+            R2Count ++ ;
         }
         else
         {
             arrowOn(arrow2);
             this.P1Rock = false;
+            R2Count = 0;
 
         }
 
-        if ( P2Rock < 2)
+        if ( P2Rock < 2 && R3Count < 2)
         {
             arrowOn(arrow3);
             this.P2Rock = true;
+            R3Count++;
         }
         else
         {
             arrowOn(arrow4);
             this.P2Rock = false;
+            R3Count = 0;
         }
-        Invoke("allArrowOff", rockSpawnTimer/5);
+        Invoke("allArrowOff", rockSpawnTimer/3);
     }
     private void arrowOn(GameObject arrow)
     {
