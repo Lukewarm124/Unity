@@ -19,22 +19,22 @@ public class PlayerOperator : MonoBehaviour
         if (Input.GetKeyDown("a"))
         {
             print("a");
-            movePlayer(true);
+            movePlayer(true,1);
         }
         if (Input.GetKeyDown("d"))
         {
             print("d");
-            movePlayer(true);
+            movePlayer(true,2);
         }
         if (Input.GetKeyDown("j"))
         {
             print("j");
-            movePlayer(false);
+            movePlayer(false,3);
         }
         if (Input.GetKeyDown("l"))
         {
             print("l");
-            movePlayer(false);
+            movePlayer(false,4);
         }
     }
     private void FixedUpdate()
@@ -58,34 +58,34 @@ public class PlayerOperator : MonoBehaviour
     }
 
 
-    private void movePlayer(bool player)
+    private void movePlayer(bool player, int where)
     {
         if (player)
         {
-            if (P1Pos)
+            if (P1Pos && where == 1)
             {
-                P1.transform.position = new Vector3(-7.5f, P1.transform.position.y, 0);
+                P1.transform.position = new Vector3(-6.5f, P1.transform.position.y, 0);
                 P1.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 P1Pos = false;
             }
-            else
+            else if (where ==2)
             {
-                P1.transform.position = new Vector3(-2.5f, P1.transform.position.y, 0);
+                P1.transform.position = new Vector3(-3.5f, P1.transform.position.y, 0);
                 P1.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 P1Pos = true;
             }
         }
         else
         {
-            if (P2Pos)
+            if (P2Pos && where == 3)
             {
-                P2.transform.position = new Vector3(2.5f, P2.transform.position.y, 0);
+                P2.transform.position = new Vector3(3.5f, P2.transform.position.y, 0);
                 P2.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 P2Pos = false;
             }
-            else
+            else if (where ==4)
             {
-                P2.transform.position = new Vector3(7.5f, P2.transform.position.y, 0);
+                P2.transform.position = new Vector3(6.5f, P2.transform.position.y, 0);
                 P2.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 P2Pos = true;
             }
