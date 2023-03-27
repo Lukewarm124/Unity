@@ -6,7 +6,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"C:/Users/lbhutt/Desktop/Unity Files/Unity-game-files/Mini games 2/build-webgl;;;;;;;;;\"}"
+                "value": "{\"m_Value\":\"C:/Users/lbhutt/Downloads/Unity_WebGl_Uncompressed;C:/Users/lbhutt/Desktop/Unity Files/Unity-game-files/Mini games 2/build-webgl;;;;;;;;\"}"
             }
         ]
     }

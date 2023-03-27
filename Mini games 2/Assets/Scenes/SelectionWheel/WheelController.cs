@@ -14,14 +14,31 @@ public class WheelController : MonoBehaviour
     private Boolean wheelSpinRest=true;
     private Boolean startGame=true;
     public static int chosenMinigame;
+    public GameObject tutorialScreen;
+    public static bool tutShown = false;
 
     private void Start()
     {
-        wheelRotation = UnityEngine.Random.Range(0, 9);
-        wheelRotation = (wheelRotation * 45) + (360 * spins);
-
+        if (!tutShown)
+        {
+            tutorialScreen.GetComponent<Renderer>().enabled = true;
+            Invoke("activateWheel", 15);
+        }
+        else
+        {
+            activateWheel();
+        }
     }
 
+
+
+    private void activateWheel()
+    {
+        tutShown = true;
+        tutorialScreen.GetComponent<Renderer>().enabled = false;
+        wheelRotation = UnityEngine.Random.Range(0, 9);
+        wheelRotation = (wheelRotation * 45) + (360 * spins);
+    }
     private void spinWheel()
     {
         //print(wheelRotation);
@@ -37,11 +54,11 @@ public class WheelController : MonoBehaviour
     void FixedUpdate()
     {
         //print(name.Substring(0, 12));
-        if(wheelSpinRest &&  wheelRotation > 0)
+        if(wheelSpinRest &&  wheelRotation > 0 && tutShown)
         {
             spinWheel();
         }
-        else if(startGame && wheelRotation == 0)
+        else if(startGame && wheelRotation == 0 && tutShown)
         {
             startGame = false;
             selectorBit.transform.position += new Vector3(0, -5, 0);
